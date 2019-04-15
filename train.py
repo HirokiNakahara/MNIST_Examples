@@ -181,7 +181,7 @@ print("Done.")
 chainer.serializers.save_npz('mnist.model',model)
 
 """<H3>学習したニューラルネットワークを使って認識できるかチェックしてみます。</H3>"""
-
+'''
 from chainer import Variable
 
 def show_examples(model, test, device):
@@ -208,3 +208,4 @@ def show_examples(model, test, device):
     plt.tight_layout()
 
 show_examples(model, test, args_gpu)
+'''

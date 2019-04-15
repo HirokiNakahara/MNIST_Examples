@@ -1,11 +1,20 @@
 #!/bin/sh
 
-echo "start"
-
-mkdir -p ~/MNIST
-if [ -e ~/MNIST/run.log ] ; then
-    echo "log exist, delete"
-    rm ~/MNIST/run.log
+echo 'Download MNIST dataset'
+date
+if [[ ! -e mnist_train.pickle || ! -e mnist_test.pickle || ! -e fashion_mnist_train.pickle || ! -e fashion_mnist_test.pickle ]]; then
+    echo "start download data"
+    python ./prep.py >& prep.log #download MNIST dataset
+else
+    echo "data exist, skip downloading"
 fi
 
-qsub -g tga-egliteracy -o ~/MNIST/run.log -e ~/MNIST/run.log qsub_run.sh
+echo 'Start training'
+date
+python ./train.py >& train.log
+
+echo 'Evaluation and plot example'
+data
+python ./eval.py >& eval.log
+
+date
