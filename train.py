@@ -15,12 +15,13 @@ CUDA 9.2<BR>
 
 <H2>環境のセットアップ（TSUBAMEでは不要？)</H2>
 """
+# commented this part for tsubame using
 
 # Check GPU status
-!nvidia-smi
+#!nvidia-smi
 
 # Install Chainer v4.5.0, Cupy v4.5.0 and CUDA
-!curl https://colab.chainer.org/install | CHAINER_VERSION="==4.5.0" CUPY_VERSION="==4.5.0" sh -
+#!curl https://colab.chainer.org/install | CHAINER_VERSION="==4.5.0" CUPY_VERSION="==4.5.0" sh -
 
 """<H3>必要なライブラリのインポート</H3>"""
 
