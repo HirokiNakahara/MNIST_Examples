@@ -1,18 +1,18 @@
 #!/bin/sh
 
+datadir=/gs/hs0/tga-egliteracy/data/MNIST_Examples
+modeldir=$PWD
+
 ########### skipping data download for tsubame using ###############
 ########### data has been save at /gs/hs0/tga-egliteracy/data/MNIST_Examples ##############
 
-#echo 'Download MNIST dataset'
 #date
-#if [[ ! -e mnist_train.pickle || ! -e mnist_test.pickle || ! -e fashion_mnist_train.pickle || ! -e fashion_mnist_test.pickle ]]; then
-#    echo "start download data"
-#    python ./prep.py >& prep.log #download MNIST dataset
-#else
-#    echo "data exist, skip downloading"
-#fi
+# ./prep.sh $datadir >&prep.log
 
 ##################################################################
+
+traindata=$datadir/train
+evaldata=$datadir/eval
 
 echo 'Start training'
 date
