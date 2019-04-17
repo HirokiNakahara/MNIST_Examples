@@ -21,6 +21,7 @@ CUDA 9.2<BR>
 #!nvidia-smi
 
 # Install Chainer v4.5.0, Cupy v4.5.0 and CUDA
+# Using chain v5.1.0 by peng
 #!curl https://colab.chainer.org/install | CHAINER_VERSION="==4.5.0" CUPY_VERSION="==4.5.0" sh -
 
 """<H3>必要なライブラリのインポート</H3>"""
@@ -34,6 +35,14 @@ from chainer.training import extensions
 from chainer.dataset import concat_examples
 from chainer.backends.cuda import to_cpu
 import numpy as np
+import argparse
+import time
+
+# Parameter setting
+parser = argparse.ArgumentParser()
+parser.add_argument('--modeldir', type=str, required=True)
+parser.add_argument('--datadir', type=str, required=True)
+args = parser.parse_args()
 
 # Check environment
 print('GPU availability:', chainer.cuda.available)
@@ -94,7 +103,15 @@ optimizer.setup(model)
 
 # Load the MNIST dataset
 #train, test = chainer.datasets.get_mnist() # handwritten character
-train, test = chainer.datasets.get_fashion_mnist() # fashion items
+#train, test = chainer.datasets.get_fashion_mnist() # fashion items
+
+# handwritten character
+#train = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'mnist_train.pickle')[0]
+#_, test = chainer.datasets.get_mnist()
+
+# fashion items
+train = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'fashion_mnist_train.pickle')[0]
+_, test = chainer.datasets.get_fashion_mnist()
 
 train_iter = chainer.iterators.SerialIterator(train, args_batchsize)
 test_iter = chainer.iterators.SerialIterator(test, args_batchsize,
@@ -105,7 +122,7 @@ test_iter = chainer.iterators.SerialIterator(test, args_batchsize,
 # Illustrate MNIST dataset
 import matplotlib.pyplot as plt
 
-print(type(train))
+#print(type(train))
 xtrain = train._datasets[0][:48]
 
 fig,ax = plt.subplots(nrows=6,ncols=8,sharex=True,sharey=True)
@@ -178,7 +195,7 @@ while train_iter.epoch < max_epoch:
                 np.mean(test_losses), np.mean(test_accuracies)))
 
 print("Done.")
-chainer.serializers.save_npz('mnist.model',model)
+chainer.serializers.save_npz(args.modeldir + '/' + 'mnist.model',model)
 
 """<H3>学習したニューラルネットワークを使って認識できるかチェックしてみます。</H3>"""
 '''

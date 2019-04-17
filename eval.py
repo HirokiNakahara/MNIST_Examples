@@ -29,6 +29,13 @@ from chainer.training import extensions
 from chainer.dataset import concat_examples
 from chainer.backends.cuda import to_cpu
 import numpy as np
+import argparse
+
+# Parameter setting
+parser = argparse.ArgumentParser()
+parser.add_argument('--modeldir', type=str, required=True)
+parser.add_argument('--datadir', type=str, required=True)
+args = parser.parse_args()
 
 # Check environment
 print('GPU availability:', chainer.cuda.available)
@@ -76,7 +83,7 @@ print('')
 # Classifier reports softmax cross entropy loss and accuracy at every
 # iteration, which will be used by the PrintReport extension below.
 model = MNIST()
-chainer.serializers.load_npz('mnist.model', model)
+chainer.serializers.load_npz(args.modeldir + '/' + 'mnist.model', model)
 
 if args_gpu >= 0:
     # Make a specified GPU current
@@ -91,9 +98,16 @@ if args_gpu >= 0:
 
 # Load the MNIST dataset
 #train, test = chainer.datasets.get_mnist() # handwritten character
-train, test = chainer.datasets.get_fashion_mnist() # fashion items
+#train, test = chainer.datasets.get_fashion_mnist() # fashion items
 
-train_iter = chainer.iterators.SerialIterator(train, args_batchsize)
+
+# handwritten character
+#test = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'mnist_test.pickle')[0]
+
+# fashion items
+test = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'fashion_mnist_test.pickle')[0]
+
+#train_iter = chainer.iterators.SerialIterator(train, args_batchsize)
 test_iter = chainer.iterators.SerialIterator(test, args_batchsize,
                                                  repeat=False, shuffle=False)
 

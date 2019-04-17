@@ -12,5 +12,5 @@ module load cudnn/7.1
 module load nccl/2.2.13
 module load openmpi/2.1.2-pgi2018
 
-source activate mnist
+source activate mnist_exp
 ./run.sh

@@ -16,10 +16,10 @@ evaldata=$datadir/eval
 
 echo 'Start training'
 date
-python ./train.py >& train.log
+./train.sh $modeldir $traindata  >& train.log
 
 echo 'Evaluation and plot example'
-data
-python ./eval.py >& eval.log
+date
+./eval.sh $modeldir $evaldata >& eval.log
 
 date
