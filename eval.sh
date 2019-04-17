@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python eval.py --modeldir $1 --datadir $2
+python -W ignore eval.py --modeldir $1 --datadir $2
