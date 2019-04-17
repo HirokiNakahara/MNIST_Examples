@@ -1,5 +1,5 @@
-chainer==5.4.0
-cupy-cuda90
+chainer==5.1.0
+cupy-cuda90==5.1.0
 cycler==0.10.0
 fastrlock==0.4
 filelock==3.0.10
