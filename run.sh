@@ -1,7 +1,7 @@
 #!/bin/sh
 
 datadir=/gs/hs0/tga-egliteracy/data/MNIST_Examples
-modeldir=$PWD
+modeldir=$PWD/model
 
 ########### skipping data download for tsubame using ###############
 ########### data has been save at /gs/hs0/tga-egliteracy/data/MNIST_Examples ##############

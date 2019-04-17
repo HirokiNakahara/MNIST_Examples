@@ -1,3 +1,12 @@
 #!/bin/sh
 
-python train.py --modeldir $1 --datadir $2
+modeldir=$1
+if [ ! -e $modeldir ]; then
+    mkdir $modeldir
+fi
+if [ -e $modeldir/mnist.model ]; then
+    echo 'model is already trained, skip'
+else
+    python train.py --modeldir $modeldir --datadir $2
+fi
+touch $modeldir/done

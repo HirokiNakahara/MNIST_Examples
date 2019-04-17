@@ -38,10 +38,10 @@ parser.add_argument('--datadir', type=str, required=True)
 args = parser.parse_args()
 
 # Check environment
-print('GPU availability:', chainer.cuda.available)
-print('cuDNN availablility:', chainer.cuda.cudnn_enabled)
+#print('GPU availability:', chainer.cuda.available)
+#print('cuDNN availablility:', chainer.cuda.cudnn_enabled)
 import chainer
-chainer.print_runtime_info()
+#chainer.print_runtime_info()
 
 """<H3>ニューラルネットワークの定義</H3>"""
 
@@ -73,11 +73,11 @@ args_epoch=3
 """<H3>定義したニューラルネットワークをメモリに読み込み、学習させる準備を行います。</H3>"""
 
 # Printout parameters
-print('GPU: {}'.format(args_gpu))
-print('# unit: {}'.format(args_unit))
-print('# Minibatch-size: {}'.format(args_batchsize))
-print('# epoch: {}'.format(args_epoch))
-print('')
+#print('GPU: {}'.format(args_gpu))
+#print('# unit: {}'.format(args_unit))
+#print('# Minibatch-size: {}'.format(args_batchsize))
+#print('# epoch: {}'.format(args_epoch))
+#print('')
 
 # Set up a neural network to train
 # Classifier reports softmax cross entropy loss and accuracy at every
