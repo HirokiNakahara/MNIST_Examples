@@ -19,5 +19,6 @@ if [[ ! -e $datadir/train/mnist_train.pickle || ! -e $datadir/eval/mnist_test.pi
     mv fashion_mnist_train.pickle $datadir/train/
     mv fashion_mnist_test.pickle $datadir/eval/
 else
-    echo "data exist, skip downloading"
+    echo "data is already prepared, skip"
 fi
+touch $datadir/done
