@@ -11,7 +11,7 @@ if
 
 echo 'Download MNIST dataset'
 date
-if [[ ! -e mnist_train.pickle || ! -e mnist_test.pickle || ! -e fashion_mnist_train.pickle || ! -e fashion_mnist_test.pickle ]]; then
+if [[ ! -e $datadir/train/mnist_train.pickle || ! -e $datadir/eval/mnist_test.pickle || ! -e $datadir/train/fashion_mnist_train.pickle || ! -e $datadir/eval/fashion_mnist_test.pickle ]]; then
     echo "start download data"
     python ./prep.py #download MNIST dataset
     mv mnist_train.pickle $datadir/train/
