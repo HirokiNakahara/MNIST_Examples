@@ -90,9 +90,6 @@ if args_gpu >= 0:
     chainer.backends.cuda.get_device_from_id(args_gpu).use()
     model.to_gpu()  # Copy the model to the GPU
 
-# Setup an optimizer
-# optimizer = chainer.optimizers.Adam(alpha=0.0001)
-# optimizer.setup(model)
 
 """<H3>学習データであるMNISTデータセット(またはFashion MNIST)の読み込み。初回は多少時間がかかります。。</H3>"""
 
@@ -115,15 +112,6 @@ test_iter = chainer.iterators.SerialIterator(test, args_batchsize,
 
 # Illustrate MNIST dataset
 import matplotlib.pyplot as plt
-
-# print(type(train))
-# xtrain = train._datasets[0][:48]
-
-# fig,ax = plt.subplots(nrows=6,ncols=8,sharex=True,sharey=True)
-# ax = ax.flatten()
-# for i in range(48):
-#     img = xtrain[i].reshape(28,28)
-#     ax[i].imshow(img,cmap='Greys',interpolation='none')
 
 """<h3>ニューラルネットワークの学習を行います。GPUを用いて高速に学習ができます。</h3>"""
 '''
