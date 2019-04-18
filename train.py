@@ -122,6 +122,8 @@ test_iter = chainer.iterators.SerialIterator(test, args_batchsize,
 # Illustrate MNIST dataset
 import matplotlib.pyplot as plt
 
+''' temporary commentted for having some problem on subdataset
+
 #print(type(train))
 xtrain = train._datasets[0][:48]
 
@@ -130,7 +132,7 @@ ax = ax.flatten()
 for i in range(48):
     img = xtrain[i].reshape(28,28)
     ax[i].imshow(img,cmap='Greys',interpolation='none')
-
+'''
 """<h3>ニューラルネットワークの学習を行います。GPUを用いて高速に学習ができます。</h3>"""
 
 max_epoch = args_epoch
@@ -196,33 +198,3 @@ while train_iter.epoch < max_epoch:
 
 print("Done.")
 chainer.serializers.save_npz(args.modeldir + '/' + 'mnist.model',model)
-
-"""<H3>学習したニューラルネットワークを使って認識できるかチェックしてみます。</H3>"""
-'''
-from chainer import Variable
-
-def show_examples(model, test, device):
-    plt.figure(figsize=(12,50))
-#    if device < 0:
-#        print("to cpu")
-#        model.to_cpu()
-    model.to_cpu()
-    for i in range(45, 55):
-        data, label = test[i]  # test data, label
-        x = Variable(np.asarray([data]))
-        t = Variable(np.asarray([label]))  # labels
-        y = model(x)
-        prediction = y.data.argmax(axis=1)
-        example = (data * 255).astype(np.int32).reshape(28, 28)
-        plt.subplot(20, 5, i - 44)
-        plt.imshow(example, cmap='gray')
-        plt.title("No.{0}\nAnswer:{1}\nPredict:{2}".format(
-            i,
-            label,
-            prediction[0]
-        ))
-        plt.axis("off")
-    plt.tight_layout()
-
-show_examples(model, test, args_gpu)
-'''
