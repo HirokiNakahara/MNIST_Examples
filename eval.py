@@ -209,7 +209,7 @@ while True:
 
 print('val_loss:{:.04f} val_accuracy:{:.04f}'.format(
         np.mean(test_losses), np.mean(test_accuracies)))
-
+'''
 from chainer import Variable
 
 def show_examples(model, test, device):
@@ -237,3 +237,4 @@ def show_examples(model, test, device):
 
 show_examples(model, test, args_gpu)
 plt.savefig('show_example.png')
+'''
