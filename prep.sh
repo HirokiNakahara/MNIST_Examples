@@ -7,7 +7,7 @@ if [ ! -e $datadir/train ]; then
 fi
 if [ ! -e $datadir/eval ]; then
     mkdir $datadir/eval
-if
+fi
 
 echo 'Download MNIST dataset'
 date
