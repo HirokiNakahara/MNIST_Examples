@@ -35,6 +35,7 @@ echo 'Evaluation'
 # date
 ./eval.sh $modeldir $evaldata >& eval.log
 
+
 echo '------------------'
 echo 'final end time'
 date
