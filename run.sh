@@ -28,7 +28,7 @@ start_time=`date +%s`
 # date
 ./train.sh $modeldir $traindata  >& train.log
 end_time=`date +%s`
-time=$((end_time - start_time))
+time="$((end_time - start_time)) (sec)"
 echo $time >& train.time.log
 
 echo 'Evaluation'
