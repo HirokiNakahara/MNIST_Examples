@@ -209,6 +209,10 @@ while True:
 
 print('val_loss:{:.04f} val_accuracy:{:.04f}'.format(
         np.mean(test_losses), np.mean(test_accuracies)))
+
+with open('score.txt', 'w') as f:
+    f.write('recognition rate = {:.1%}\n'.format(np.mean(test_accuracies)))
+
 '''
 from chainer import Variable
 
