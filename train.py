@@ -106,12 +106,12 @@ optimizer.setup(model)
 #train, test = chainer.datasets.get_fashion_mnist() # fashion items
 
 # handwritten character
-#train = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'mnist_train.pickle')[0]
-#_, test = chainer.datasets.get_mnist()
+train = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'mnist_train.pickle')[0]
+_, test = chainer.datasets.get_mnist()
 
 # fashion items
-train = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'fashion_mnist_train.pickle')[0]
-_, test = chainer.datasets.get_fashion_mnist()
+#train = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'fashion_mnist_train.pickle')[0]
+#_, test = chainer.datasets.get_fashion_mnist()
 
 train_iter = chainer.iterators.SerialIterator(train, args_batchsize)
 test_iter = chainer.iterators.SerialIterator(test, args_batchsize,
