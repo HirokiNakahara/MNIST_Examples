@@ -24,13 +24,17 @@ traindata=$datadir/train1
 evaldata=$datadir/eval
 
 echo 'Start training'
+start_time=`date +%s`
 # date
 ./train.sh $modeldir $traindata  >& train.log
+end_time=`date +%s`
+time=$((end_time - start_time))
+echo $time >& train.time.log
 
 echo 'Evaluation'
 # date
 ./eval.sh $modeldir $evaldata >& eval.log
 
 echo '------------------'
-echo 'end time'
+echo 'final end time'
 date
