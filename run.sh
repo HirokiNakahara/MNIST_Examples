@@ -33,7 +33,7 @@ echo $time >& train.time.log
 
 echo 'Evaluation'
 # date
-./eval.sh $modeldir $evaldata >& score.txt
+./eval.sh $modeldir $evaldata >& eval.log
 
 echo '------------------'
 echo 'final end time'
