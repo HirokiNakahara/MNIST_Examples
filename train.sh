@@ -7,6 +7,6 @@ fi
 if [ -e $modeldir/mnist.model ]; then
     echo 'model is already trained, skip'
 else
-    python train.py --modeldir $modeldir --datadir $2
+    python -W ignore train.py --modeldir $modeldir --datadir $2
 fi
 touch $modeldir/done
