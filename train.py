@@ -75,7 +75,7 @@ class MNIST(chainer.Chain):
 args_gpu=0 # 0: GPU (strongly recommendded), -1: CPU
 args_unit=100 # The number of neurons in hidden layers
 args_batchsize=100
-args_epoch=3
+args_epoch=50
 
 """<H3>定義したニューラルネットワークをメモリに読み込み、学習させる準備を行います。</H3>"""
 
