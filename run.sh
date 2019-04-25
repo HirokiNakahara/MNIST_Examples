@@ -24,11 +24,11 @@ traindata=$datadir/train1
 evaldata=$datadir/eval
 
 echo 'Start training'
-date
+# date
 ./train.sh $modeldir $traindata  >& train.log
 
 echo 'Evaluation'
-date
+# date
 ./eval.sh $modeldir $evaldata >& eval.log
 
 echo '------------------'
