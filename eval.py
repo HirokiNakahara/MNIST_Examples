@@ -99,10 +99,10 @@ if args_gpu >= 0:
 
 
 # handwritten character
-#test = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'mnist_test.pickle')[0]
+test = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'mnist_test.pickle')[0]
 
 # fashion items
-test = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'fashion_mnist_test.pickle')[0]
+#test = chainer.datasets.open_pickle_dataset(args.datadir + '/' + 'fashion_mnist_test.pickle')[0]
 
 #train_iter = chainer.iterators.SerialIterator(train, args_batchsize)
 test_iter = chainer.iterators.SerialIterator(test, args_batchsize,
