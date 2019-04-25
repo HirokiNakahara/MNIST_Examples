@@ -11,7 +11,7 @@ modeldir=$PWD/model
 
 ##################################################################
 
-traindata=$datadir/train
+traindata=$datadir/train100
 evaldata=$datadir/eval
 
 echo 'Start training'
