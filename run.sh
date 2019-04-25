@@ -17,9 +17,7 @@ echo '-----------------'
 
 traindata=$datadir/train1
 # traindata=$datadir/train20
-# traindata=$datadir/train40
 # traindata=$datadir/train60
-# traindata=$datadir/train80
 # traindata=$datadir/train100
 evaldata=$datadir/eval
 
