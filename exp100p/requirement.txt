@@ -5,7 +5,7 @@ fastrlock==0.4
 filelock==3.0.10
 kiwisolver==1.0.1
 matplotlib==3.0.2
-numpy==1.16.0
+numpy==1.22.0
 protobuf==3.6.1
 pyparsing==2.3.1
 python-dateutil==2.7.5
